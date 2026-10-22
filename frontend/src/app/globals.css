@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Noto Kufi Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, Arial,
+    sans-serif;
+
+  --color-brand-50: #eef8f7;
+  --color-brand-100: #d2ecea;
+  --color-brand-200: #a7d9d5;
+  --color-brand-300: #74bfba;
+  --color-brand-400: #47a09b;
+  --color-brand-500: #2b837e;
+  --color-brand-600: #216966;
+  --color-brand-700: #1e5451;
+  --color-brand-800: #1c4442;
+  --color-brand-900: #1a3938;
+
+  --color-surface: #ffffff;
+  --color-canvas: #f4f6f8;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-slate-900);
+    font-family: var(--font-sans);
+    line-height: 1.7;
+  }
+
+  /* حلقة تركيز واضحة لكل العناصر التفاعلية (متطلّب إتاحة). */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-200);
+  }
+
+  /* الأرقام العربية داخل الجداول تبقى بمحاذاة صحيحة. */
+  table {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .skip-link {
+    position: absolute;
+    inset-inline-start: 1rem;
+    top: -3rem;
+    z-index: 100;
+    background-color: var(--color-brand-700);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: top 150ms ease-in-out;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+}
